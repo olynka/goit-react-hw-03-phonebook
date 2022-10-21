@@ -49,21 +49,18 @@ state = {
     }))
   }
 
-
-  formSubmitHandler = data => {
-  console.log(data);
-}
-
   addContact = ({ name, number }) => {  
-    const contact = {
-      id: nanoid(4),
-      name: name,
-      number: number
-    }
+  
     
     if (this.duplicateContact(name)) {
       return alert(`"${name}" is already in your Phonebook`);
     };
+
+      const contact = {
+      id: nanoid(4),
+      name: name,
+      number: number
+    }
 
     this.setState(({contacts}) => ({
       contacts: [...contacts, contact]
